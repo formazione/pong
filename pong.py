@@ -108,18 +108,29 @@ def start():
 
     pygame.quit()
     sys.exit()
-
+font = pygame.font.SysFont("Arial", 24)
+def write(text, x, y, color="Coral",):
+    "Put text centered on the screen"
+    # remeber to:
+    # font = pygame.font.SysFont("Arial", 24)
+    text = font.render(text, 1, pygame.Color(color))
+    text_rect = text.get_rect(center=(500 // 2, y))
+    screen.blit(text, text_rect)
+    return text
 
 def menu():
     loop = 1
+    write("Press Space to start", 500, 250)
     while loop:
-        keys = pygame.key.get_pressed()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 loop = 0
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     loop = 0
+                if event.key == pygame.K_SPACE:
+                    screen.fill((0, 0, 0))
+                    start()
 
         pygame.display.update()
         # screen.fill((0, 0, 0))
