@@ -84,25 +84,48 @@ def collision():
 
 pygame.mouse.set_visible(False)
 pygame.event.set_grab(True)
-loop = 1
-while loop:
-    keys = pygame.key.get_pressed()
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            loop = 0
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                loop = 0
-    gfxdraw.filled_circle(screen, ball.x, ball.y, 5, (0, 0, 0))
-    ball.update()
-    pygame.draw.rect(screen, BLACK, bar1.rect)
-    bar1.update()
-    pygame.draw.rect(screen, BLACK, bar2.rect)
-    bar2.update()
-    collision()
-    pygame.display.update()
-    # screen.fill((0, 0, 0))
-    clock.tick(60)
 
-pygame.quit()
-sys.exit()
+def start():
+    loop = 1
+    while loop:
+        keys = pygame.key.get_pressed()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                loop = 0
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    loop = 0
+        gfxdraw.filled_circle(screen, ball.x, ball.y, 5, (0, 0, 0))
+        ball.update()
+        pygame.draw.rect(screen, BLACK, bar1.rect)
+        bar1.update()
+        pygame.draw.rect(screen, BLACK, bar2.rect)
+        bar2.update()
+        collision()
+        pygame.display.update()
+        # screen.fill((0, 0, 0))
+        clock.tick(60)
+
+    pygame.quit()
+    sys.exit()
+
+
+def menu():
+    loop = 1
+    while loop:
+        keys = pygame.key.get_pressed()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                loop = 0
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    loop = 0
+
+        pygame.display.update()
+        # screen.fill((0, 0, 0))
+        clock.tick(60)
+
+    pygame.quit()
+    sys.exit()
+
+menu()
