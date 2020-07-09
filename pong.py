@@ -108,7 +108,11 @@ def start():
 
     pygame.quit()
     sys.exit()
+
+
 font = pygame.font.SysFont("Arial", 24)
+
+
 def write(text, x, y, color="Coral",):
     "Put text centered on the screen"
     # remeber to:
@@ -120,6 +124,7 @@ def write(text, x, y, color="Coral",):
 
 def menu():
     loop = 1
+    write("PONG 2020", 500, 150)
     write("Press Space to start", 500, 250)
     while loop:
         for event in pygame.event.get():
